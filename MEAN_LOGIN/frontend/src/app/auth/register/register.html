@@ -1,0 +1,47 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold text-center text-gray-900">Create your account</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <div>
+          <label for="name" class="text-sm font-medium text-gray-700">Name</label>
+          <div class="mt-1">
+            <input id="name" type="text" placeholder="Your Name" formControlName="name"
+              class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          </div>
+          <small *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.hasError('required')">Name is Required</small>
+        </div>
+        <div>
+          <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+          <div class="mt-1">
+            <input id="email" type="email" placeholder="Your Email" formControlName="email"
+              class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          </div>
+        </div>
+        <div>
+          <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+          <div class="mt-1">
+            <input id="password" type="password" placeholder="Your Password" formControlName="password"
+              class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          </div>
+        </div>
+        <div>
+          <label for="mobile" class="text-sm font-medium text-gray-700">Mobile</label>
+          <div class="mt-1">
+            <input id="mobile" type="text" placeholder="Your Mobile" formControlName="mobile"
+              class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+          </div>
+        </div>
+        <div>
+          <button type="submit" [disabled]="registerForm.invalid"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50">
+            Sign up
+          </button>
+          <a routerLink="/login"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Login
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
